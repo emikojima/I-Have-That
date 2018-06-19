@@ -1,3 +1,10 @@
+<%if flash[:message]%>
+<div data-alert class=" <%=flash[:message]%> alert-box radius">
+  <h3 style="background-color:DodgerBlue; text-align:center; color:white;"><%=flash[:message]%></h3>
+</div>
+<%end%>
+<br>
+<br>
 <h4>Hello!</h4>
 <h3>Here are the list of items <%=@user.username%> has listed for community lending: </h3>
 <% @user.items.each do |item| %>
