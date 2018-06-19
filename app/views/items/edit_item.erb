@@ -1,0 +1,17 @@
+<h3>Edit Your Item:</h3>
+<form action="/items/<%= @item.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <h5>EDIT item name: <%=@item.name%></h5>
+  <label for="name">Item name:</label>
+  <input type="text" name="name" value="">
+  <br>
+  <h5>EDIT item description: <%=@item.detail%></h5>
+  <label for="content">Item description:</label>
+    <input type="text" name="detail" value="">
+    <br>
+    <br>
+<input type="submit" name="submit" value="Update Item">
+</form>
+<br>
+
+<a href="/items"><h5>Or Go Back to Items List</h5></a>

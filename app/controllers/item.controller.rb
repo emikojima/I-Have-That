@@ -17,16 +17,27 @@ class ItemController < ApplicationController
 
   get '/items/:id' do
     @item = Item.all.find(params[:id])
-      if logged_in?
+      if logged_in? && session[:user_id] == @item.user_id
+        redirect "/items/#{@item.id}/edit"
+      elsif logged_in?
         erb :'items/show_one'
       else
         redirect "/login"
       end
-    #can see item page
-    #can contact item user?
   end
 
-  get 'items/:id/edit' do
+  get '/items/:id/edit' do
+    if logged_in?
+        @item = Item.all.find(params[:id])
+        if @item && session[:user_id] == @item.user_id
+        erb :'items/edit_item'
+        else
+          redirect "/items"
+        end
+    else
+      redirect "/login"
+    end
+
     #if logged in and item belongs to you
     #can edit an item Name
     #can edit item description
