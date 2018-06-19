@@ -44,13 +44,35 @@ class ItemController < ApplicationController
     #return to user item list
   end
 
-  patch 'items/:id' do
-
+  post '/items/:id' do
+    if logged_in?
+        @item = Item.all.find(params[:id])
+        if session[:user_id] == @item.user_id
+          if params[:item][:name] != "" && params[:item][:detail] != ""
+          @item.update(params[:item])
+          flash[:message] = "Successfully updated."
+          elsif params[:item][:name] != ""
+            @item.update(name: params[:item][:name])
+          else
+            @item.update(detail: params[:item][:detail])
+          end
+            redirect "/user/#{@item.user.slug}"
+        else
+          redirect "/items/#{@item.id}/edit"
+        end
+      else
+        redirect "/login"
+    end
   end
 
-  post 'items/:id/delete' do
-    #deletes item
+  post '/items/:id/delete' do
+    @item = Item.all.find(params[:id])
+    if logged_in? && session[:user_id] == @item.user_id
+      @item.delete
+      redirect "/items"
+    else
+      redirect "/items"
+    end
   end
-
 
 end
