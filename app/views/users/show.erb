@@ -1,0 +1,5 @@
+<h4>Hi, <%=@user.username%>!</h4>
+<h3>Here are the list of items you have listed for community lending: </h3>
+<% @user.items.each do |item| %>
+<a href="/item/<%=item.id%>"><%= item.name %></a>
+<% end %>

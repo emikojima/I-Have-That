@@ -36,7 +36,9 @@ class UserController < ApplicationController
       end
   end
 
-  get '/user/:id' do
+  get '/user/:slug' do
+    @user = User.all.find_by_slug(params[:slug])
+    erb :'users/show'
     #can see all user items and links to item:id page
     #MAYBE can change username
   end
