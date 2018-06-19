@@ -10,10 +10,12 @@ class UserController < ApplicationController
 
   post '/signup'  do
     if params[:username]=="" || params[:email]==""|| params[:password]==""
+      flash[:message] = "Please provide all fields."
       redirect "/signup"
     else
       @user = User.create(params)
       session[:user_id] = @user.id
+      flash[:message] = "Sign up successful! Welcome to I HAVE THAT!"
       redirect "/items"
     end
   end
@@ -32,6 +34,7 @@ class UserController < ApplicationController
         session[:user_id] = @user.id
         redirect "/items"
       else
+        flash[:message] = "Hmmm. Something went wrong. Try again!"
         redirect "/login"
       end
   end

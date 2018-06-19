@@ -5,6 +5,7 @@
   <label for="name">Item name:</label>
   <input type="text" name="item[name]" value="">
   <br>
+  <br>
   <h5>EDIT item description: <%=@item.detail%></h5>
   <label for="content">Item description:</label>
     <input type="text" name="item[detail]" value="">
@@ -14,7 +15,7 @@
 </form>
 <br>
 
-<label for="delete"><h5>DELETE this item </h5></label>
+<h3><label for="delete">DELETE your item: </label></h3>
 <form action="/items/<%= @item.id %>/delete" method="POST">
 <input type="submit" name="delete" id="delete" value="Delete item">
 </form>

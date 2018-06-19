@@ -1,3 +1,8 @@
+
 <% @items.each do |item| %>
 <h4><a href="items/<%=item.id%>"><%=item.name%></a>:  <%=item.detail%></h4>
 <% end %>
+<br>
+<br>
+
+  <h4 style="background-color:violet; text-align:center; color:white;"><a href="/user/<%=@user.slug%>">My Items</a></h4>
