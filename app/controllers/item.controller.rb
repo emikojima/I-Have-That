@@ -35,20 +35,16 @@ class ItemController < ApplicationController
 
   get '/items/:id/edit' do
     if logged_in?
-        @item = Item.all.find(params[:id])
-        if @item && session[:user_id] == @item.user_id
-        erb :'items/edit_item'
-        else
-          redirect "/items"
-        end
+      @item = Item.all.find(params[:id])
+      if @item && session[:user_id] == @item.user_id
+      erb :'items/edit_item'
+      else
+        flash[:message] = "You can't edit someone else's item!"
+        redirect "/items"
+      end
     else
       redirect "/login"
     end
-
-    #if logged in and item belongs to you
-    #can edit an item Name
-    #can edit item description
-    #return to user item list
   end
 
   patch '/items/:id' do
@@ -63,7 +59,7 @@ class ItemController < ApplicationController
             @item.update(detail: params[:item][:detail])
           end
           flash[:message] = "Successfully updated item."
-            redirect "/user/#{@item.user.slug}"
+          redirect "/user/#{@item.user.slug}"
         else
           flash[:message] = "Something went wrong. Try again!"
           redirect "/items/#{@item.id}/edit"

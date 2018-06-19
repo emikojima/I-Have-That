@@ -1,11 +1,14 @@
 
 <h3>Hello!</h3>
-<h4>Here are the list of items <%=@user.username%> has listed for community lending: </h4>
-<% @user.items.each do |item| %>
-<ol>
-  <li><a href="/items/<%=item.id%>"><%= item.name %></a></li>
-</ol>
-<% end %>
+<h4>Here are the list of items
+  <% if @user.id == @session %>
+    you have listed for community lending:
+  <% else %>
+    <%=@user.username%> has listed for community lending: </h4>
+  <% end %>
+  <% @user.items.each do |item| %>
+    <ol><li><a href="/items/<%=item.id%>"><%= item.name %></a></li></ol>
+  <% end %>
 <br>
 <br>
 <h4 style="background-color:lightgray;"><br> </h4>

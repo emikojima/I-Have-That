@@ -13,10 +13,18 @@ class UserController < ApplicationController
       flash[:message] = "Please provide all fields."
       redirect "/signup"
     else
-      @user = User.create(params)
-      session[:user_id] = @user.id
-      flash[:message] = "Sign up successful! Welcome to I HAVE THAT!"
-      redirect "/items"
+      if User.all.map {|u| u.username}.include?(params[:username])
+        flash[:message] = "That username is taken! Try another!"
+        redirect "/signup"
+      elsif User.all.map {|u| u.email}.include?(params[:email])
+        flash[:message] = "That email is already associated with an account."
+        redirect "/login"
+      else
+        @user = User.create(params)
+        session[:user_id] = @user.id
+        flash[:message] = "Sign up successful! Welcome to I HAVE THAT!"
+        redirect "/items"
+      end
     end
   end
 
@@ -40,9 +48,9 @@ class UserController < ApplicationController
   end
 
   get '/user/:slug' do
+    @session = session[:user_id]
     @user = User.all.find_by_slug(params[:slug])
     erb :'users/show'
-    #can see all items and links to item:id page
     #MAYBE can change username
   end
 
