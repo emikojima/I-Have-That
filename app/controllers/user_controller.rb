@@ -36,6 +36,11 @@ class UserController < ApplicationController
       end
   end
 
+  get '/user/:id' do
+    #can see all user items and links to item:id page
+    #MAYBE can change username
+  end
+
   get '/logout' do
     if logged_in?
       session.clear
@@ -44,5 +49,6 @@ class UserController < ApplicationController
       redirect "/"
     end
   end
+
 
 end

@@ -16,7 +16,24 @@ class ItemController < ApplicationController
   end
 
   get '/items/:id' do
+    #can see item page
+    #can contact item user?
+  end
+
+  get 'items/:id/edit' do
+    #if logged in and item belongs to you
+    #can edit an item Name
+    #can edit item description
+    #return to user item list
+  end
+
+  patch 'items/:id' do
 
   end
+
+  post 'items/:id/delete' do
+    #deletes item 
+  end
+
 
 end
