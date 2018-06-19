@@ -9,10 +9,6 @@ class UserController < ApplicationController
   end
 
   post '/signup'  do
-    if params[:username]=="" || params[:email]==""|| params[:password]==""
-      flash[:message] = "Please provide all fields."
-      redirect "/signup"
-    else
       if User.all.map {|u| u.username}.include?(params[:username])
         flash[:message] = "That username is taken! Try another!"
         redirect "/signup"
@@ -25,7 +21,6 @@ class UserController < ApplicationController
         flash[:message] = "Sign up successful! Welcome to I HAVE THAT!"
         redirect "/items"
       end
-    end
   end
 
   get '/login' do
@@ -47,11 +42,38 @@ class UserController < ApplicationController
       end
   end
 
+  get '/user' do
+    @users = User.all
+      erb :'/users/show_all'
+  end
+
   get '/user/:slug' do
     @session = session[:user_id]
     @user = User.all.find_by_slug(params[:slug])
-    erb :'users/show'
+    erb :'/users/show'
     #MAYBE can change username
+  end
+
+  get '/user/:slug/edit' do
+    @user = User.all.find_by_slug(params[:slug])
+    if logged_in? && session[:user_id] = @user.id
+      erb :'/users/edit'
+    else
+      redirect  "/user/#{@user.slug}"
+    end
+  end
+
+  patch '/user/:slug' do
+    @user = User.all.find_by_slug(params[:slug])
+    if params[:username] != "" && !User.all.map {|u| u.username}.include?(params[:username])
+       @user.update(username: params[:username])
+       flash[:message] = "You have successfully updated your username!"
+       redirect "/user/#{@user.slug}"
+     else
+       flash[:message] = "Hmmm. That username is taken. Try again!"
+       redirect "/user/#{@user.slug}/edit"
+     end
+
   end
 
   get '/logout' do

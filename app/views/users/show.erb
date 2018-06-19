@@ -9,10 +9,13 @@
   <% @user.items.each do |item| %>
     <ol><li><a href="/items/<%=item.id%>"><%= item.name %></a></li></ol>
   <% end %>
-<br>
+  <br>
+  <br>
+
 <br>
 <h4 style="background-color:lightgray;"><br> </h4>
 <h4 style="background-color:lightgray; text-align:center;">I have an <a href="/items/new">item to add</a>. </h4>
 <h4 style="background-color:lightgray; text-align:center;"><a href="/items">View ALL items</a></h4>
+<h4 style="background-color:lightgray; text-align:center;"><a href="/user/<%=@user.slug%>/edit">Edit my account</a></h4>
 <h4 style="background-color:lightgray; text-align:center;"><a href="/logout">Log Out</a></h4>
 <h4 style="background-color:lightgray;"><br> </h4>

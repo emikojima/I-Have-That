@@ -1,0 +1,14 @@
+<h3>EDIT Your Account:</h3>
+<form action="/user/<%= @user.slug %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <h4>EDIT username: <%=@user.username%></h4>
+  <label for="name">Username:</label>
+  <input type="text" name="username" value="">
+  <br>
+  <br>
+
+<input type="submit" name="submit" value="Update Account">
+</form>
+<br>
+<br>
+<a href="/user/<%=@user.slug%>"><h5>Go Back to My Items</h5></a>

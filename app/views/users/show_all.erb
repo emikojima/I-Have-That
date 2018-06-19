@@ -1,0 +1,15 @@
+<h4>Here are your community members</h4>
+<h6>We are <%=@users.count%> members strong!</h6>
+<% @users.each do |u| %>
+<li><%=u.username%></li>
+<% end %>
+<br>
+<br>
+<br>
+
+<br>
+<h4 style="background-color:lightgray;"><br> </h4>
+<h4 style="background-color:lightgray; text-align:center;">I have an <a href="/items/new">item to add</a>. </h4>
+<h4 style="background-color:lightgray; text-align:center;"><a href="/items">View ALL items</a></h4>
+<h4 style="background-color:lightgray; text-align:center;"><a href="/logout">Log Out</a></h4>
+<h4 style="background-color:lightgray;"><br> </h4>
