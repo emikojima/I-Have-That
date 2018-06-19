@@ -1,0 +1,5 @@
+<h4><%=@item.name%>:  <%=@item.detail%></h4>
+<br>
+<h3>Contact <%=@item.user.username%> to borrow this item.
+  <br>
+<a href="mailto:<%= @item.user.email %>">Send and email NOW</a></h3>

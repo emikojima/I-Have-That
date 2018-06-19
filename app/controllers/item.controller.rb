@@ -16,6 +16,12 @@ class ItemController < ApplicationController
   end
 
   get '/items/:id' do
+    @item = Item.all.find(params[:id])
+      if logged_in?
+        erb :'items/show_one'
+      else
+        redirect "/login"
+      end
     #can see item page
     #can contact item user?
   end
@@ -32,7 +38,7 @@ class ItemController < ApplicationController
   end
 
   post 'items/:id/delete' do
-    #deletes item 
+    #deletes item
   end
 
 
