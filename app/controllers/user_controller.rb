@@ -14,7 +14,7 @@ class UserController < ApplicationController
         redirect "/signup"
       elsif User.all.map {|u| u.email}.include?(params[:email])
         flash[:message] = "That email is already associated with an account."
-        redirect "/login"
+        redirect "/"
       else
         @user = User.create(params)
         session[:user_id] = @user.id
