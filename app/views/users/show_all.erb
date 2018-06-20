@@ -1,7 +1,7 @@
 <h4>Here are your community members</h4>
-<h6>We are <%=@users.count%> members strong!</h6>
+<h5>We are <%=@users.count%> members strong!</h5>
 <% @users.each do |u| %>
-<li><%=u.username%></li>
+<li><a href="/user/<%=u.slug%>"><%=u.username%></a></li>
 <% end %>
 <br>
 <br>
