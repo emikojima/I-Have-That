@@ -1,7 +1,7 @@
 class ItemController < ApplicationController
 
   get '/items' do
-    @user = User.all.find(session[:user_id])
+    @user = current_user
     @items = Item.all
     erb :'/items/show'
   end
@@ -11,9 +11,11 @@ class ItemController < ApplicationController
   end
 
   post '/items/new' do
-    @user = User.find(session[:user_id])
+    @user =  current_user
     if params[:item][:name] != "" && params[:item][:detail] != ""
-      @user.items << Item.create(params[:item])
+      # @user.items << Item.create(params[:item])
+      @user.items.build(name: params[:item][:name], detail: params[:item][:detail])
+      @user.save
       flash[:message] = "Success! Thank you for adding an item for community lending."
       redirect "/items"
     else
@@ -24,7 +26,7 @@ class ItemController < ApplicationController
 
   get '/items/:id' do
     @item = Item.all.find(params[:id])
-      if logged_in? && session[:user_id] == @item.user_id
+      if logged_in? && current_user.id == @item.user_id
         redirect "/items/#{@item.id}/edit"
       elsif logged_in?
         erb :'items/show_one'
@@ -36,7 +38,7 @@ class ItemController < ApplicationController
   get '/items/:id/edit' do
     if logged_in?
       @item = Item.all.find(params[:id])
-      if @item && session[:user_id] == @item.user_id
+      if @item && current_user.id == @item.user_id
       erb :'items/edit_item'
       else
         flash[:message] = "You can't edit someone else's item!"
@@ -50,7 +52,7 @@ class ItemController < ApplicationController
   patch '/items/:id' do
     if logged_in?
         @item = Item.all.find(params[:id])
-        if session[:user_id] == @item.user_id
+        if current_user.id == @item.user_id
           if params[:item][:name] != "" && params[:item][:detail] != ""
           @item.update(params[:item])
           elsif params[:item][:name] != ""
@@ -72,7 +74,7 @@ class ItemController < ApplicationController
 
   post '/items/:id/delete' do
     @item = Item.all.find(params[:id])
-    if logged_in? && session[:user_id] == @item.user_id
+    if logged_in? && current_user.id == @item.user_id
       @item.delete
       flash[:message] = "You have deleted your item."
       redirect "/items"

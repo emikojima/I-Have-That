@@ -56,7 +56,7 @@ class UserController < ApplicationController
 
   get '/user/:slug/edit' do
     @user = User.all.find_by_slug(params[:slug])
-    if logged_in? && session[:user_id] = @user.id
+    if logged_in? && session[:user_id] == @user.id 
       erb :'/users/edit'
     else
       redirect  "/user/#{@user.slug}"
