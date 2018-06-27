@@ -1,15 +1,15 @@
 
 <% @items.each do |item| %>
-<h4> Item: <a href="items/<%=item.id%>"><%=item.name%></a></h4>
-   <h5 style="text-indent: 35px;">  <%=item.detail%></h5>
+<h3 style="font-family:monospace;"> Item: <a href="items/<%=item.id%>"><%=item.name%></a></h3>
+   <h3 style="text-indent: 35px;font-family:monospace;">  <%=item.detail%></h3>
 <br>
 <% end %>
 <br>
 <br>
 
 
-  <h4 style="background-color:lightgray;"><br> </h4>
-  <h4 style="background-color:lightgray; text-align:center; color:white;"><a href="/user/<%=@user.slug%>">My Items</a></h4>
-  <h4 style="background-color:lightgray; text-align:center;"><a href="/user">Community</a></h4>
-  <h4 style="background-color:lightgray; text-align:center;"><a href="/logout">Log Out</a></h4>
-  <h4 style="background-color:lightgray;"><br> </h4>
+  <h3 style="background-color:lightgray; font-family:monospace;"><br> </h3>
+  <h3 style="background-color:lightgray; font-family:monospace; text-align:center; color:white;"><a href="/user/<%=@user.slug%>">My Items</a></h3>
+  <h3 style="background-color:lightgray; font-family:monospace; text-align:center;"><a href="/user">Community</a></h3>
+  <h3 style="background-color:lightgray; font-family:monospace; text-align:center;"><a href="/logout">Log Out</a></h3>
+  <h3 style="background-color:lightgray; font-family:monospace;"><br> </h3>

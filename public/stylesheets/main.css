@@ -4,18 +4,21 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
   }
 
   html, body {
     height: 100%;
     width: 100%;
+
   }
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
-    color: #333;
-    font-family: Sans-Serif;
+
+    /* background-color: lightblue; */
+    /* color: #333; */
+    font-family: monospace;
     line-height: 18px;
   }
 
