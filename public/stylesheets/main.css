@@ -1,44 +1,56 @@
 @media screen {
-  /* --- Reset Styles --- */
   * {
     list-style: none;
     margin: 0;
     padding: 0;
-
   }
 
   html, body {
     height: 100%;
     width: 100%;
-
   }
 
-  /* --- Welcome Page Styles --- */
+  /* --- Page Styles --- */
   body {
    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
    line-height:  1.6;
-    /* background-color: lightblue; */
-    /* color: #333; */
-    /* font-family: monospace; */
-
   }
 
   .wrapper {
-    background: #fff;
+    background-color:#f7f6ea;
+    opacity: 0.9;
     border: 25px;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 32px auto;
+    margin:50px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
   }
 
-  .flash {
+  .end {
+    background:lightgray;
+    text-align: center;
+  }
+
+  .headerbox {
+    width: auto;
+    height: auto;
+    padding: 35px;
+    border: 1px solid gray;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    font-family: "Times New Roman", Times, serif;
+}
+  .flash {
+    opacity: none;
+    box-shadow: 0 10px 10px rgba(0,0,0,.3);
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 150%;
+    background: #0000FF;
+    text-align:center;
+    color:white;
   }
   ol {
     text-align: center;

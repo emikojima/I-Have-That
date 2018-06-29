@@ -1,5 +1,5 @@
-<h4 style="text-align:center;">We are <%=@users.count%> members strong!</h4>
-<h4 style="text-align:center;">Here are your community members:</h4>
+<h3 style="text-align:center;">We are <%=@users.count%> members strong!</h3>
+<h4 style="text-align:center;">Here are your community members:</h4><br>
 <% @users.each do |u| %>
 <ul>
 <li style="text-indent: 38%;"> ▻ <a href="/user/<%=u.slug%>"> <%=u.username%></a></li>
@@ -9,9 +9,11 @@
 <br>
 <br>
 
-<h4 style="background-color:lightgray;"><br> </h4>
-<h4 style="background-color:lightgray; text-align:center;"><a href="/user/<%=@user.slug%>">My Items</a></h4>
-<h4 style="background-color:lightgray; text-align:center;"><a href="/user/<%=@user.slug%>/edit">Edit my account</a></h4>
-<h4 style="background-color:lightgray; text-align:center;"><a href="/items">View ALL items</a></h4>
-<h4 style="background-color:lightgray; text-align:center;"><a href="/logout">Log Out</a></h4>
-<h4 style="background-color:lightgray;"><br> </h4>
+<div class="end">
+<h4><br> </h4>
+<h4><a href="/user/<%=@user.slug%>">My Items</a></h4>
+<h4><a href="/user/<%=@user.slug%>/edit">Edit My Account</a></h4>
+<h4><a href="/items">View ALL items</a></h4>
+<h4><a href="/logout">Log Out</a></h4>
+<h4><br> </h4>
+</div>

@@ -2,15 +2,15 @@
 
 <h4><%=@item.name%>:</h4>
  <h5 style="text-indent: 35px;  font-style: italic;"><%=@item.detail%></h5>
-<br>Contact <%=@item.user.username%> to borrow this item.
-<a href="mailto:<%= @item.user.email %>?subject=Message from IHT Re: <%= @item.name %> &body=Message sent from IHT (I HAVE THAT App) ">Send EMAIL</a>
+<br>Contact community member <a href="mailto:<%= @item.user.email %>?subject=Message from IHT Re: <%= @item.name %> &body=Message sent from IHT (I HAVE THAT App) "> <%=@item.user.username.upcase%></a> to borrow this item.
 
 <br>
 <br>
 <br>
-
-<h4 style="background-color:lightgray;"><br> </h4>
-<h4 style="background-color:lightgray; text-align:center;">I have an <a href="/items/new">item to add</a> </h4>
-<h4 style="background-color:lightgray; text-align:center;"><a href="/items">View ALL items</a></h4>
-<h4 style="background-color:lightgray; text-align:center;"><a href="/logout">Log Out</a></h4>
-<h4 style="background-color:lightgray;"><br> </h4>
+<div class="end">
+  <h4<br> </h4>
+  <h4><a href="/items/new">Add an Item</a> </h4>
+  <h4><a href="/items">View ALL items</a></h4>
+  <h4><a href="/logout">Log Out</a></h4>
+  <h4><br> </h4>
+</div>
