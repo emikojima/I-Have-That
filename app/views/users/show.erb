@@ -1,21 +1,25 @@
 
-<h3>Hello!</h3>
-<h4>Here are the list of items
+<h3 style="text-align:center;">Here are the items</h3>
   <% if @user.id == @session %>
-    you have listed for community lending:
+  <h3 style="text-align:center;">you have listed for community lending:<br></h3><br>
   <% else %>
-    <%=@user.username%> has listed for community lending: </h4>
+  <h3 style="text-align:center;"> <%=@user.username%> has listed for community lending: </h3><br><br>
   <% end %>
   <% @user.items.each do |item| %>
-    <ol><li><a href="/items/<%=item.id%>"><%= item.name %></a></li></ol>
+    <ol><li><a href="/items/<%=item.id%>"><%= item.name %></a></li>
+    <h5 style="text-indent: 35px;  font-style: italic;">  <%=item.detail%></h5>
+    <br>
+    <br>
+  </ol>
   <% end %>
   <br>
   <br>
 
 <br>
-<h4 style="background-color:lightgray; font-family:monospace; "><br> </h4>
-<h4 style="background-color:lightgray; font-family:monospace; text-align:center;">I have an <a href="/items/new">item to add</a>. </h4>
-<h4 style="background-color:lightgray; font-family:monospace; text-align:center;"><a href="/items">View ALL items</a></h4>
-<h4 style="background-color:lightgray; font-family:monospace; text-align:center;"><a href="/user/<%=@user.slug%>/edit">Edit my account</a></h4>
-<h4 style="background-color:lightgray; font-family:monospace; text-align:center;"><a href="/logout">Log Out</a></h4>
+<h4 style="background-color:lightgray; "><br> </h4>
+<h4 style="background-color:lightgray; text-align:center;">I have an <a href="/items/new">item to add</a> </h4>
+<h4 style="background-color:lightgray;  text-align:center;"><a href="/user/<%=@current_user%>/edit">Edit my account</a></h4>
+<h4 style="background-color:lightgray; text-align:center;"><a href="/items">View ALL items</a></h4>
+<h4 style="background-color:lightgray;  text-align:center;"><a href="/user">Community</a></h4>
+<h4 style="background-color:lightgray; text-align:center;"><a href="/logout">Log Out</a></h4>
 <h4 style="background-color:lightgray;"><br> </h4>

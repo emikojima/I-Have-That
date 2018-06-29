@@ -14,13 +14,13 @@
 
 <body background="/images/nature2.jpg">
   <!-- <img src="images/corneal-small.png" class="img-responsive main-image"></header> -->
-  <div class="wrapper" style="background-color:#EAEDEF; opacity: 0.8;  font-family:monospace" >
+  <div class="wrapper" style="background-color:#f7f6ea; opacity: 0.9;" >
 
-    <h1 style="text-align:center; font-family:monospace">Welcome to I HAVE THAT!</h1>
-    <h3 style="text-align:center; font-family:monospace">A community lending page.</h3>
+    <h1 style="text-align:center; ">Welcome to I HAVE THAT!</h1>
+    <h3 style="text-align:center; ">A community lending page.</h3>
     <%if flash[:message]%>
-    <div data-alert class=" <%=flash[:message]%> alert-box radius">
-    <h3 style="background-color:DodgerBlue; text-align:center; color:white;"><%=flash[:message]%></h3>
+    <div data-alert class=" <%=flash[:message]%> alert-box radius"><br>
+    <h2 class="flash"; style="background-color:#ff6600;text-align:center; color:white;"><%=flash[:message]%></h2>
     </div>
     <%end%>
     <br>

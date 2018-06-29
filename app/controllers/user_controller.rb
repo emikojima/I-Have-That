@@ -35,6 +35,7 @@ class UserController < ApplicationController
       @user = User.find_by(username: params[:username])
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
+        flash[:message] = "Welcome back to I HAVE THAT!"
         redirect "/items"
       else
         flash[:message] = "Hmmm. Something went wrong. Try again!"
@@ -44,21 +45,25 @@ class UserController < ApplicationController
 
   get '/user' do
     @users = User.all
+    @user = User.find_by_id(session[:user_id])
       erb :'/users/show_all'
   end
 
   get '/user/:slug' do
     @session = session[:user_id]
     @user = User.all.find_by_slug(params[:slug])
+    @current_user = User.find(@session).slug
     erb :'/users/show'
     #MAYBE can change username
   end
 
   get '/user/:slug/edit' do
+    @session = session[:user_id]
     @user = User.all.find_by_slug(params[:slug])
-    if logged_in? && session[:user_id] == @user.id 
+    if logged_in? && session[:user_id] == @user.id
       erb :'/users/edit'
     else
+      flash[:message] = "You can't update someone else's page!"
       redirect  "/user/#{@user.slug}"
     end
   end

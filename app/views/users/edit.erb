@@ -1,8 +1,8 @@
 <h3>EDIT Your Account:</h3>
 <form action="/user/<%= @user.slug %>" method="POST">
   <input type="hidden" name="_method" value="patch">
-  <h4>EDIT username: <%=@user.username%></h4>
-  <label for="name">Username:</label>
+  CURRENT username: <%=@user.username%><br>
+  <label for="name">NEW username:</label>
   <input type="text" name="username" value="">
   <br>
   <br>

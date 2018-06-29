@@ -1,7 +1,13 @@
 <form  action="/items/new" method="post">
   <label for="name">Item Name</label>
-  <input type="text" name="item[name]" id="name" value="">
+<input type="text" name="item[name]" id="name" value="">
+  <h4>*** Name of your item (and quantity if less than 1). ***</h4><br>
   <label for="detail">Item Description</label>
-  <input type="text" name="item[detail]" id="detail" value="">
+  <input type="text" name="item[detail]" id="detail" value=""><br>
+  <h4>*** Describe your item (brand, model number). ***</h4><br>
   <input type="submit" name="submit" value="submit">
 </form>
+
+<br>
+<br>
+<a href="/items"><h5>Or Go Back to Items List</h5></a>
