@@ -9,7 +9,7 @@ Users can email community members to inquire about an item.
 The idea for this application stemmed from a desire and a need to reduce waste and share more. It is an idea rooted in social and environmental justice. If we all shared the things (resources, knowledge, etc.) we had and shared them better, the world can look very different. We could feel more connected to our neighbors, reduce waste, buy less, and feel more engaged with those living around us. This is my small attempt to get that going. Ideally, this app would have a location functionality, where each user is connected to users who live close by. This functionality has yet to be built in.
 
 ## Demo:
-![Imgur](https://media.giphy.com/media/4KFvWCbUOEUuVx9Lx0/giphy.gif)
+![Imgur](https://media.giphy.com/media/fxL1F0CHqY0zvohbbQ/giphy.gif)
 
 ## Installation
  * To use this app, just fork and clone, run `cd I-Have-That`
