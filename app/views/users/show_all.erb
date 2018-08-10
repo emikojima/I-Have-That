@@ -2,7 +2,7 @@
 <h4 style="text-align:center;">Here are your community members:</h4><br>
 <% @users.each do |u| %>
 <ul>
-<li style="text-indent: 38%;"> ▻ <a href="/user/<%=u.slug%>"> <%=u.username%></a></li>
+<li> ▻ <a href="/user/<%=u.slug%>"> <%=u.username%></a></li>
 <% end %>
 </ul>
 <br>

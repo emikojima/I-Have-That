@@ -1,22 +1,24 @@
 
-<h3 style="text-align:center;">Here are the items</h3>
+
   <% if @user.id == @session %>
-  <h3 style="text-align:center;">you have listed for community lending.</h3>
-  <p style="text-align:center;">▻ You can click on an item to EDIT. <p> <br>
+    <% if @user.items.empty? %>
+      <h3 style="text-align:center;"> You have no items listed for community lending.</h3>
+    <%else%>
+      <h3 style="text-align:center;">Here are the items</h3>
+      <h3 style="text-align:center;">you have listed for community lending.</h3>
+      <p style="text-align:center;">▻ You can click on an item to EDIT. <p>
+    <% end %>
   <% else %>
-  <h3 style="text-align:center;"> <%=@user.username%> has listed for community lending: </h3><br><br>
+    <h3 style="text-align:center;">Here are the items</h3>
+    <h3 style="text-align:center;"> <%=@user.username.upcase%> has listed for community lending: </h3><br><br>
   <% end %>
   <% @user.items.each do |item| %>
-    <ol><li><a href="/items/<%=item.id%>"><%= item.name %></a></li>
-    <h5 style="text-indent: 35px;  font-style: italic;">  <%=item.detail%></h5>
-    <br>
-    <br>
-  </ol>
+    <ol><li style="text-align:center;"><a href="/items/<%=item.id%>"><%= item.name %></a></li>
+    <h5 style="font-style: italic; text-align:center;">  <%=item.detail%></h5>
+    <br><br></ol>
   <% end %>
-  <br>
-  <br>
-
-<br>
+    <br>
+    <br>
 <div class="end">
 <h4 style="background-color:lightgray; "><br> </h4>
 <h4><a href="/items/new">Add an Item</a> </h4>

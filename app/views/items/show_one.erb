@@ -1,14 +1,14 @@
 
 
-<h4><%=@item.name%>:</h4>
- <h5 style="text-indent: 35px;  font-style: italic;"><%=@item.detail%></h5>
+<h4><%=@item.name%></h4>
+ <h5 style="font-style: italic;"><%=@item.detail%></h5>
 <br>Contact community member <a href="mailto:<%= @item.user.email %>?subject=Message from IHT Re: <%= @item.name %> &body=Message sent from IHT (I HAVE THAT App) "> <%=@item.user.username.upcase%></a> to borrow this item.
 
 <br>
 <br>
 <br>
 <div class="end">
-  <h4<br> </h4>
+  <h4><br> </h4>
   <h4><a href="/items/new">Add an Item</a> </h4>
   <h4><a href="/items">View ALL items</a></h4>
   <h4><a href="/logout">Log Out</a></h4>

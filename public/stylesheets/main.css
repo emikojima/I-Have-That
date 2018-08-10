@@ -14,6 +14,23 @@
   body {
    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
    line-height:  1.6;
+   text-align: center;
+  }
+
+  a:link {
+      color: green;
+  }
+
+  a:visited {
+      color: black;
+  }
+
+  a:hover {
+      color: hotpink;
+  }
+
+  a:active {
+      color: blue;
   }
 
   .wrapper {
@@ -37,11 +54,12 @@
   .headerbox {
     width: auto;
     height: auto;
-    padding: 35px;
+    padding: 45px;
     border: 1px solid gray;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
+    margin:30px auto;
 }
   .flash {
     opacity: none;
@@ -54,6 +72,10 @@
   }
   ol {
     text-align: center;
+  }
+
+  li {
+      text-align: center;
   }
 
   p {
