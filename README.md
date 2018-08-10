@@ -15,7 +15,7 @@ The idea for this application stemmed from a desire and a need to reduce waste a
  * To use this app, just fork and clone, run `cd I-Have-That`
  * Run `bundle install`
  * Run `rake db:migrate`
- * Run `shotgun`	+To use this app, just fork and clone, run `cd I-Have-That`, run `bundle install`, and then run `shotgun`.
+ * Run `shotgun`	
  * View on localhost:9393
 
 
